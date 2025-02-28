@@ -4,9 +4,11 @@ import {
   StyleSheet,
   Image,
   ImageSourcePropType,
+  Pressable,
 } from 'react-native'
 import { colors } from '@/constant/colors'
 import { LinearGradient } from 'expo-linear-gradient'
+import { useRouter } from 'expo-router'
 
 interface PortraitProps {
   name: string
@@ -14,16 +16,25 @@ interface PortraitProps {
 }
 
 export default function Portrait({ name, image }: PortraitProps) {
+  const router = useRouter()
+  const handlePress = () => {
+    router.push({
+      pathname: '/about/[character]',
+      params: { character: name },
+    })
+  }
   return (
-    <View style={style.container}>
-      <Image source={image} style={style.image} />
-      <LinearGradient
-        colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0)', 'rgba(0,0,0,0.5)']}
-        locations={[0, 0.1, 0.5]}
-        style={style.makeDark}
-      />
-      <Text style={style.text}>{name}</Text>
-    </View>
+    <Pressable onPress={handlePress}>
+      <View style={style.container}>
+        <Image source={image} style={style.image} />
+        <LinearGradient
+          colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0)', 'rgba(0,0,0,0.5)']}
+          locations={[0, 0.1, 0.5]}
+          style={style.makeDark}
+        />
+        <Text style={style.text}>{name}</Text>
+      </View>
+    </Pressable>
   )
 }
 
@@ -40,7 +51,7 @@ const style = StyleSheet.create({
     marginRight: 10,
   },
   makeDark: {
-    width: 90,
+    width: 100,
     height: 50,
     position: 'absolute',
     bottom: 0,
@@ -55,10 +66,13 @@ const style = StyleSheet.create({
     transform: [{ translateX: '-50%' }],
   },
   image: {
-    width: 98,
+    width: 96,
     height: 180,
     position: 'absolute',
     bottom: 0,
     left: 0,
+  },
+  link: {
+    opacity: 0,
   },
 })
