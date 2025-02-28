@@ -5,4 +5,6 @@ export const colors = {
   FOOTERDISABLEDGRAY: '#7B7B7B',
   ORANGE_600: '#FF6B57',
   BLACK: '#000',
+  GRAY: '#D9D9D9',
+  PORTRAIT_GRAY: '#242424',
 }

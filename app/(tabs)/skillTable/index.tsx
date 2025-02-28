@@ -1,5 +1,4 @@
-import { Text, View, StyleSheet, SafeAreaView } from 'react-native'
-import { Link } from 'expo-router'
+import { Text, StyleSheet, SafeAreaView } from 'react-native'
 import { colors } from '@/constant/colors'
 
 export default function Index() {
