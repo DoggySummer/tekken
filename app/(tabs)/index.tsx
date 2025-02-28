@@ -37,7 +37,7 @@ const style = StyleSheet.create({
   scrollViewContent: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     paddingBottom: 30,
   },
 })

@@ -31,10 +31,12 @@ export default function Banner({ image }: BannerProps) {
   )
 }
 
+const bannerHeight = 70
+
 const style = StyleSheet.create({
   container: {
     width: '100%',
-    height: 100,
+    height: bannerHeight,
     position: 'relative',
     alignItems: 'center',
     flexDirection: 'row',
@@ -42,7 +44,7 @@ const style = StyleSheet.create({
   },
   linear: {
     width: '100%',
-    height: 50,
+    height: bannerHeight,
     position: 'absolute',
     top: 0,
     left: 0,
@@ -50,26 +52,21 @@ const style = StyleSheet.create({
     bottom: 0,
   },
   imageContainer: {
-    width: 100,
-    height: 70,
-    top: -30,
-    left: 0,
+    width: 150,
+    height: bannerHeight,
     overflow: 'hidden',
     flex: 1,
-    alignContent: 'flex-end',
   },
   image: {
-    position: 'absolute',
-    top: 0,
-    left: 10,
-    width: '30%',
-    height: 100,
-    objectFit: 'cover',
+    width: 60,
+    height: '100%',
+    resizeMode: 'contain',
+    marginLeft: 50,
   },
   logo: {
-    width: 200,
-    top: 0,
-    right: 0,
-    objectFit: 'contain',
+    width: '30%',
+    height: '100%',
+    resizeMode: 'contain',
+    marginRight: 50,
   },
 })
