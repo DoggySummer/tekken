@@ -84,150 +84,224 @@ export const characterList = [
   {
     name: 'anna',
     image: anna,
+    dlc: true,
+    posture: ['basic'],
   },
   {
     name: 'alisa',
     image: alisa,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'asuka',
     image: asuka,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'azucena',
     image: azucena,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'bryan',
     image: bryan,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'claudio',
     image: claudio,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'clive',
     image: clive,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'deviljin',
     image: deviljin,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'dragunov',
     image: dragunov,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'eddy',
     image: eddy,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'fengwei',
     image: fengwei,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'heihachi',
     image: heihachi,
+    dlc: true,
+    posture: ['basic'],
   },
   {
     name: 'hwoarang',
     image: hwoarang,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'jack',
     image: jack,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'jin',
     image: jin,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'jun',
     image: jun,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'kazuya',
     image: kazuya,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'king',
     image: king,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'kuma',
     image: kuma,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'lars',
     image: lars,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'law',
     image: law,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'leo',
     image: leo,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'lee',
     image: lee,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'leory',
     image: leory,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'lili',
     image: lili,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'lidia',
     image: lidia,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'nina',
     image: nina,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'panda',
     image: panda,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'paul',
     image: paul,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'raven',
     image: raven,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'reina',
     image: reina,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'shaheen',
     image: shaheen,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'steve',
     image: steve,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'victor',
     image: victor,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'xiaoyu',
     image: xiaoyu,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'yoshimitsu',
     image: yoshimitsu,
+    dlc: false,
+    posture: ['basic'],
   },
   {
     name: 'zafina',
     image: zafina,
+    dlc: false,
+    posture: ['basic', 'mantis', 'tarantula'],
   },
 ]
 
@@ -350,7 +424,7 @@ export const dummyskill01: Skill = {
   counter: 5,
   position: ['중'],
   dmg1: 21,
-  form: 'basic'
+  form: 'basic',
 }
 
 export const dummyskill02: Skill = {
@@ -366,5 +440,5 @@ export const dummyskill02: Skill = {
   counter: 8,
   position: ['중'],
   dmg1: 45,
-  form: 'basic'
+  form: 'basic',
 }

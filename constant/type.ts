@@ -1,5 +1,5 @@
 import { atkList, moveList } from './constant'
-
+import { ImageSourcePropType } from 'react-native'
 export interface Skill {
   id: String
   character: string
@@ -19,19 +19,8 @@ export interface Skill {
   form: string
 }
 export interface Character {
-  id: number
-  thumbnail: string
-  bannerImg: string
-  skillsAll: Skill[]
-  form: string[]
-  mainSkill: Skill[]
-  title1: string
-  title2?: string
-  title3?: string
-  title4?: string
-  description1: string
-  description2?: string
-  description3?: string
-  description4?: string
+  name: string
+  image: ImageSourcePropType
+  dlc: boolean
+  posture: string[]
 }
-
