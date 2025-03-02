@@ -1,42 +1,3 @@
-// 인물 초상화
-import anna from '@/assets/images/anna_thumb.webp'
-import alisa from '@/assets/images/alisa_thumb.webp'
-import asuka from '@/assets/images/asuka_thumb.webp'
-import azucena from '@/assets/images/azucena_thumb.webp'
-import bryan from '@/assets/images/bryan_thumb.webp'
-import claudio from '@/assets/images/claudio_thumb.webp'
-import clive from '@/assets/images/clive_thumb.webp'
-import deviljin from '@/assets/images/deviljin_thumb.png'
-import dragunov from '@/assets/images/dragunov_thumb.webp'
-import eddy from '@/assets/images/eddy_thumb.webp'
-import fengwei from '@/assets/images/fengwei_thumb.webp'
-import heihachi from '@/assets/images/heihachi_thumb.webp'
-import hwoarang from '@/assets/images/hwoarang_thumb.webp'
-import jack from '@/assets/images/jack_thumb.webp'
-import jin from '@/assets/images/jin_thumb.webp'
-import jun from '@/assets/images/jun_thumb.webp'
-import kazuya from '@/assets/images/kazuya_thumb.webp'
-import king from '@/assets/images/king_thumb.webp'
-import kuma from '@/assets/images/kuma_thumb.webp'
-import lars from '@/assets/images/lars_thumb.webp'
-import law from '@/assets/images/law_thumb.webp'
-import leo from '@/assets/images/leo_thumb.webp'
-import lee from '@/assets/images/lee_thumb.webp'
-import leory from '@/assets/images/leroy_thumb.webp'
-import lili from '@/assets/images/lili_thumb.webp'
-import lidia from '@/assets/images/lidia_thumb.webp'
-import nina from '@/assets/images/nina_thumb.webp'
-import panda from '@/assets/images/panda_thumb.png'
-import paul from '@/assets/images/paul_thumb.webp'
-import raven from '@/assets/images/raven_thumb.webp'
-import reina from '@/assets/images/reina_thumb.png'
-import shaheen from '@/assets/images/shaheen_thumb.webp'
-import steve from '@/assets/images/steve_thumb.webp'
-import victor from '@/assets/images/victor_thumb.webp'
-import xiaoyu from '@/assets/images/xiaoyu_thumb.webp'
-import yoshimitsu from '@/assets/images/yoshimitsu_thumb.webp'
-import zafina from '@/assets/images/zafina_thumb.webp'
-
 // 버튼
 import lp from '@/assets/images/lp_btn.png'
 import rp from '@/assets/images/rp_btn.png'
@@ -66,7 +27,6 @@ import dash07 from '@/assets/images/arrow17.png'
 import dash08 from '@/assets/images/arrow18.png'
 import dash09 from '@/assets/images/arrow19.png'
 
-
 //상황
 import chip from '@/assets/images/chip.png'
 import heat from '@/assets/images/heat.png'
@@ -80,7 +40,6 @@ import tornado from '@/assets/images/tornado.png'
 import wallblast from '@/assets/images/wallblast.png'
 import wallbound from '@/assets/images/wallbound.png'
 import wallbreak from '@/assets/images/wallbreak.png'
-
 
 import { Skill } from './type'
 
@@ -98,230 +57,6 @@ export const atkList = [
   'HT',
   'HX',
 ] as const
-export const characterList = [
-  {
-    name: 'anna',
-    image: anna,
-    dlc: true,
-    posture: ['basic'],
-  },
-  {
-    name: 'alisa',
-    image: alisa,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'asuka',
-    image: asuka,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'azucena',
-    image: azucena,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'bryan',
-    image: bryan,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'claudio',
-    image: claudio,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'clive',
-    image: clive,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'deviljin',
-    image: deviljin,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'dragunov',
-    image: dragunov,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'eddy',
-    image: eddy,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'fengwei',
-    image: fengwei,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'heihachi',
-    image: heihachi,
-    dlc: true,
-    posture: ['basic'],
-  },
-  {
-    name: 'hwoarang',
-    image: hwoarang,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'jack',
-    image: jack,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'jin',
-    image: jin,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'jun',
-    image: jun,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'kazuya',
-    image: kazuya,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'king',
-    image: king,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'kuma',
-    image: kuma,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'lars',
-    image: lars,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'law',
-    image: law,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'leo',
-    image: leo,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'lee',
-    image: lee,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'leory',
-    image: leory,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'lili',
-    image: lili,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'lidia',
-    image: lidia,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'nina',
-    image: nina,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'panda',
-    image: panda,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'paul',
-    image: paul,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'raven',
-    image: raven,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'reina',
-    image: reina,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'shaheen',
-    image: shaheen,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'steve',
-    image: steve,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'victor',
-    image: victor,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'xiaoyu',
-    image: xiaoyu,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'yoshimitsu',
-    image: yoshimitsu,
-    dlc: false,
-    posture: ['basic'],
-  },
-  {
-    name: 'zafina',
-    image: zafina,
-    dlc: false,
-    posture: ['basic', 'mantis', 'tarantula'],
-  },
-]
 
 export const situationList = [
   {
@@ -371,7 +106,7 @@ export const situationList = [
   {
     name: 'wallbreak',
     image: wallbreak,
-  }
+  },
 ]
 
 export const buttonList = [

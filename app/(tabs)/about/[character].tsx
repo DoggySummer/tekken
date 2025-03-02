@@ -1,6 +1,6 @@
 import { Text, SafeAreaView, StyleSheet, Image } from 'react-native'
 import { useLocalSearchParams } from 'expo-router'
-import { characterList } from '@/constant/constant'
+import { characterList } from '@/constant/character'
 import { colors } from '@/constant/colors'
 import Skill from '@/components/skill'
 import { dummyskill01, dummyskill02 } from '@/constant/constant'
