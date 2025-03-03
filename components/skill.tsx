@@ -6,29 +6,32 @@ import { buttonList } from '@/constant/constant'
 
 export default function SkillComponent(props: Skill) {
   const {
-    id,
-    name,
-    aka,
-    isFavorite,
+    character_name,
+    skill_name,
+    aka_kor,
+    posture,
+    prefix,
     command,
+    suffix,
+    hit_position,
+    dmg,
     start,
     hit,
-    guard,
     counter,
-    position,
-    dmg1,
-    dmg2,
-    dmg3,
-    dmg4,
-    form,
+    guard,
+    hitIcons,
+    description_1_kor,
+    description_2_kor,
+    description_3_kor,
+    description_4_kor,
   } = props
   //command: ['move06', 'rp']
   const image01 = buttonList.find((button) => button.name === command[0])
   const image02 = buttonList.find((button) => button.name === command[1])
   return (
     <View style={style.container}>
-      <Text style={style.title}>{name}</Text>
-      <Text style={style.aka}>{aka ? '통칭 : ' + aka : ''}</Text>
+      <Text style={style.title}>{skill_name}</Text>
+      <Text style={style.aka}>{aka_kor ? '통칭 : ' + aka_kor : ''}</Text>
       <View style={style.bottomContainer}>
         <View style={style.command}>
           {/* <Text style={style.textBasic}>일어나며</Text> */}

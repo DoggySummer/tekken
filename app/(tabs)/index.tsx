@@ -1,8 +1,7 @@
 import { StyleSheet, SafeAreaView, ScrollView } from 'react-native'
 import Portrait from '@/components/portrait'
 import { colors } from '@/constant/colors'
-import { characterList } from '@/constant/constant'
-
+import { characterList } from '@/constant/character'
 export default function Index() {
   return (
     <SafeAreaView style={style.container}>

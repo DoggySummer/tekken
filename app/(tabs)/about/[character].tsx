@@ -5,16 +5,33 @@ import { colors } from '@/constant/colors'
 import Skill from '@/components/skill'
 import { dummyskill01, dummyskill02 } from '@/constant/constant'
 import CharacterLeft from '@/components/characterLeft'
-
 import { View } from 'react-native'
 import CharacterRight from '@/components/characterRight'
 import { Character } from '@/constant/type'
+
+import { useEffect } from 'react'
 
 export default function Index() {
   const { character } = useLocalSearchParams()
   const characterData: Character = characterList.find(
     (item) => item.name === character
   ) as Character
+
+  const fetchData = async () => {
+    const response = await fetch('/api/db', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const data = await response.json()
+    console.log(data)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
   return (
     <SafeAreaView style={style.container}>
       <View style={style.topContainer}>

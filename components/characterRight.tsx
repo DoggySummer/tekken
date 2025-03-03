@@ -15,10 +15,6 @@ export default function CharacterRight({ character }: CharacterRightProps) {
         <Text style={style.textGray}>{name}</Text>
       </View>
       <View style={style.characterInfoRow}>
-        <Text style={style.textWhite}>DLC</Text>
-        <Text style={style.textGray}>{dlc ? 'O' : 'X'}</Text>
-      </View>
-      <View style={style.characterInfoRow}>
         <Text style={style.textWhite}>자세 (클릭 시 이동)</Text>
       </View>
       <View style={style.postureContainer}>
