@@ -58,7 +58,7 @@ export const atkList = [
   'HX',
 ] as const
 
-export const situationList = [
+export const hitIconsList = [
   {
     name: 'chip',
     image: chip,
@@ -219,58 +219,3 @@ export const buttonList = [
     image: dash09,
   },
 ]
-export const dummyskill01: Skill = {
-  character_name: 'asuka',
-  skill_name: 'funeral palm',
-  aka_kor: '귀살',
-  command: ['move06', 'rp'],
-  start: '10',
-  hit: '3',
-  guard: '-8',
-  counter: '5',
-  hit_position: ['중'],
-  posture: 'basic',
-  dmg: ['21'],
-  prefix: '앉으며',
-  suffix: '',
-  hitIcons: {
-    heat: false,
-    tornado: true,
-    wall: true,
-    floor: true,
-    homing: true,
-    power: true,
-  },
-  description_1_kor: '예시ㅇㅇ',
-  description_2_kor: 'ㅈㅈ예시ㅈㅈ',
-  description_3_kor: '',
-  description_4_kor: '',
-}
-
-export const dummyskill02: Skill = {
-  character_name: 'asuka',
-  skill_name: 'funeral palm',
-  aka_kor: '귀살',
-  command: ['move06', 'rp'],
-  start: '10',
-  hit: '3',
-  guard: '-8',
-  counter: '5',
-  hit_position: ['중'],
-  posture: 'basic',
-  dmg: ['21'],
-  prefix: '앉으며',
-  suffix: '',
-  hitIcons: {
-    heat: false,
-    tornado: true,
-    wall: true,
-    floor: true,
-    homing: true,
-    power: true,
-  },
-  description_1_kor: '예시ㅇㅇ',
-  description_2_kor: 'ㅈㅈ예시ㅈㅈ',
-  description_3_kor: '',
-  description_4_kor: '',
-}

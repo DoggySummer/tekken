@@ -2,23 +2,22 @@ import { Text, SafeAreaView, StyleSheet, Image } from 'react-native'
 import { useLocalSearchParams } from 'expo-router'
 import { characterList } from '@/constant/character'
 import { colors } from '@/constant/colors'
-import Skill from '@/components/skill'
-import { dummyskill01, dummyskill02 } from '@/constant/constant'
 import CharacterLeft from '@/components/characterLeft'
 import { View } from 'react-native'
 import CharacterRight from '@/components/characterRight'
-import { Character } from '@/constant/type'
-
-import { useEffect } from 'react'
+import { Character, Skill } from '@/constant/type'
+import { useEffect, useState } from 'react'
+import SkillComponent from '@/components/skill'
 
 export default function Index() {
   const { character } = useLocalSearchParams()
   const characterData: Character = characterList.find(
     (item) => item.name === character
   ) as Character
-
+  const [skillData, setSkillData] = useState<Skill[]>([])
   const fetchData = async () => {
-    const response = await fetch('/api/db', {
+    const url = 'http://localhost:8081/api/db' + '?character=' + character
+    const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -26,6 +25,7 @@ export default function Index() {
     })
     const data = await response.json()
     console.log(data)
+    setSkillData(data.data)
   }
 
   useEffect(() => {
@@ -39,8 +39,9 @@ export default function Index() {
         <CharacterRight character={characterData} />
       </View>
       {/* <Banner image={characterData?.image} /> */}
-      <Skill {...dummyskill01} />
-      {/* <Skill {...dummyskill02} /> */}
+      {skillData.map((item) => {
+        return <SkillComponent key={item.skill_name} {...item} />
+      })}
     </SafeAreaView>
   )
 }
