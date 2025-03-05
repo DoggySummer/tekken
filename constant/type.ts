@@ -11,6 +11,7 @@ export interface Icons {
 }
 
 export interface Skill {
+  _id: string
   character_name: string
   skill_name: string
   aka_kor: string

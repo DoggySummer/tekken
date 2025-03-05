@@ -7,7 +7,7 @@ import rk from '@/assets/images/rk_btn.png'
 import ak from '@/assets/images/ak.png'
 import la from '@/assets/images/la_btn.png'
 import ra from '@/assets/images/ra_btn.png'
-import ht from '@/assets/images/hx_btn.png'
+import ht from '@/assets/images/ht_btn.png'
 import hx from '@/assets/images/hx_btn.png'
 import move01 from '@/assets/images/arrow01.png'
 import move02 from '@/assets/images/arrow02.png'
@@ -151,39 +151,39 @@ export const buttonList = [
     image: hx,
   },
   {
-    name: 'move01',
+    name: '1',
     image: move01,
   },
   {
-    name: 'move02',
+    name: '2',
     image: move02,
   },
   {
-    name: 'move03',
+    name: '3',
     image: move03,
   },
   {
-    name: 'move04',
+    name: '4',
     image: move04,
   },
   {
-    name: 'move05',
+    name: '5',
     image: move05,
   },
   {
-    name: 'move06',
+    name: '6',
     image: move06,
   },
   {
-    name: 'move07',
+    name: '7',
     image: move07,
   },
   {
-    name: 'move08',
+    name: '8',
     image: move08,
   },
   {
-    name: 'move09',
+    name: '9',
     image: move09,
   },
   {

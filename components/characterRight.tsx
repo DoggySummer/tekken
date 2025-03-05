@@ -15,7 +15,7 @@ export default function CharacterRight({ character }: CharacterRightProps) {
         <Text style={style.textGray}>{name}</Text>
       </View>
       <View style={style.characterInfoRow}>
-        <Text style={style.textWhite}>자세 (클릭 시 이동)</Text>
+        <Text style={style.textWhite}>자세 &#40;클릭 시 이동&#41;</Text>
       </View>
       <View style={style.postureContainer}>
         {posture.map((item) => {

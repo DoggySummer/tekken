@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, StyleSheet, Image } from 'react-native'
+import { Text, SafeAreaView, StyleSheet, Image, Platform } from 'react-native'
 import { useLocalSearchParams } from 'expo-router'
 import { characterList } from '@/constant/character'
 import { colors } from '@/constant/colors'
@@ -16,16 +16,23 @@ export default function Index() {
   ) as Character
   const [skillData, setSkillData] = useState<Skill[]>([])
   const fetchData = async () => {
-    const url = 'http://localhost:8081/api/db' + '?character=' + character
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    const data = await response.json()
-    console.log(data)
-    setSkillData(data.data)
+    const baseUrl = Platform.OS === 'android' ? 'http://10.0.2.2:8081' : 'http://localhost:8081';
+    const url = `${baseUrl}/api/db?character=${character}`;
+
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+      })
+      const data = await response.json()
+      setSkillData(data.data)
+    } catch (error) {
+      console.error('데이터 가져오기 실패:', error)
+      setSkillData([])
+    }
   }
 
   useEffect(() => {
@@ -40,8 +47,9 @@ export default function Index() {
       </View>
       {/* <Banner image={characterData?.image} /> */}
       {skillData.map((item) => {
-        return <SkillComponent key={item.skill_name} {...item} />
+        return <SkillComponent key={item._id} {...item} />
       })}
+
     </SafeAreaView>
   )
 }
@@ -50,6 +58,7 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.BGCOLOR,
+    overflow: 'scroll'
   },
   topContainer: {
     flexDirection: 'row',

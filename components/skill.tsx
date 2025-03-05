@@ -26,10 +26,13 @@ export default function SkillComponent(props: Skill) {
     description_3_kor,
     description_4_kor,
   } = props
-  //command: ['move06', 'rp']
+
+  /** 버튼 이미지 */
   const image01 = buttonList.find((button) => button.name === command[0])
   const image02 = buttonList.find((button) => button.name === command[1])
   const image03 = buttonList.find((button) => button.name === command[2])
+
+  /** 아이콘 */
   const heatIcon = hitIcons.heat
     ? hitIconsList.find((icon) => icon.name === 'heat')?.image
     : null
@@ -48,7 +51,14 @@ export default function SkillComponent(props: Skill) {
   const powerIcon = hitIcons.power
     ? hitIconsList.find((icon) => icon.name === 'power')?.image
     : null
-  const startPlus = start[0] !== '-' ? true : false
+
+  /** 플러스에는 초록, 마이너스에는 빨강 */
+  const hitPlus = hit[0] !== '-' ? true : false
+  const guardPlus = guard[0] !== '-' ? true : false
+  const counterPlus = counter[0] !== '-' ? true : false
+
+  const isCounterDown = counter[0] === 'd' ? true : false
+  const isHitDown = hit[0] === 'd' ? true : false
   return (
     <View style={style.container}>
       <View style={style.titleContainer}>
@@ -65,20 +75,20 @@ export default function SkillComponent(props: Skill) {
           </View>
           <View style={style.skilldefContainer}>
             <Text style={style.skilldefTitle}>{'히트 : '}</Text>
-            <Text style={startPlus ? style.textPlus : style.textMinus}>
-              {hit}
+            <Text style={hitPlus ? style.textPlus : style.textMinus}>
+              {isHitDown ? '다운' : hit}
             </Text>
           </View>
           <View style={style.skilldefContainer}>
             <Text style={style.skilldefTitle}>{'가드 : '}</Text>
-            <Text style={startPlus ? style.textPlus : style.textMinus}>
+            <Text style={guard === '0' ? style.textNormal : (guardPlus ? style.textPlus : style.textMinus)}>
               {guard}
             </Text>
           </View>
           <View style={style.skilldefContainer}>
             <Text style={style.skilldefTitle}>{'카운터 : '}</Text>
-            <Text style={startPlus ? style.textPlus : style.textMinus}>
-              {counter}
+            <Text style={counterPlus ? style.textPlus : style.textMinus}>
+              {isCounterDown ? '다운' : counter}
             </Text>
           </View>
         </View>
@@ -111,6 +121,7 @@ const style = StyleSheet.create({
     width: '90%',
     marginRight: 'auto',
     marginLeft: 'auto',
+    marginBottom: 24,
   },
   titleContainer: {
     flexDirection: 'row',
