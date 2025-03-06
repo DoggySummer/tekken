@@ -1,13 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 import { Skill } from '@/constant/type'
 import { colors } from '@/constant/colors'
 import { Image } from 'react-native'
 import { buttonList, hitIconsList } from '@/constant/constant'
 import AntDesign from '@expo/vector-icons/AntDesign'
 import FontAwesome from '@expo/vector-icons/FontAwesome'
+import { useEffect, useState } from 'react'
 
 export default function SkillComponent(props: Skill) {
+  const [isBookmarked, setIsBookmarked] = useState(false)
+  const [isNoteVisible, setIsNoteVisible] = useState(false)
   const {
+    _id,
     skill_name,
     aka_kor,
     posture,
@@ -26,6 +32,8 @@ export default function SkillComponent(props: Skill) {
     description_3_kor,
     description_4_kor,
   } = props
+  const storageKey = `bookmark_${_id}`
+
   //command: ['move06', 'rp']
   const image01 = buttonList.find((button) => button.name === command[0])
   const image02 = buttonList.find((button) => button.name === command[1])
@@ -49,12 +57,41 @@ export default function SkillComponent(props: Skill) {
     ? hitIconsList.find((icon) => icon.name === 'power')?.image
     : null
   const startPlus = start[0] !== '-' ? true : false
+
+  const loadBookmarkState = async () => {
+    try {
+      const savedState = await AsyncStorage.getItem(storageKey)
+      if (savedState !== null) {
+        setIsBookmarked(JSON.parse(savedState))
+      }
+    } catch (error) {
+      console.error('북마크 상태 로딩 실패:', error)
+    }
+  }
+  const toggleBookmark = async () => {
+    try {
+      const newState = !isBookmarked
+      setIsBookmarked(newState)
+      await AsyncStorage.setItem(storageKey, JSON.stringify(newState))
+    } catch (error) {
+      console.error('북마크 상태 저장 실패:', error)
+    }
+  }
+  useEffect(() => {
+    loadBookmarkState()
+  }, [])
   return (
     <View style={style.container}>
       <View style={style.titleContainer}>
         <Text style={style.title}>{skill_name}</Text>
-        <AntDesign name='staro' size={24} color={colors.WHITE} />
-        <AntDesign name='star' size={24} color={colors.WHITE} />
+        {
+          <AntDesign
+            name={isBookmarked ? 'star' : 'staro'}
+            size={24}
+            color={colors.WHITE}
+            onPress={toggleBookmark}
+          />
+        }
       </View>
       <Text style={style.aka_kor}>{aka_kor ? '통칭 : ' + aka_kor : ''}</Text>
       <View style={style.definitionContainer}>
@@ -89,9 +126,36 @@ export default function SkillComponent(props: Skill) {
           {floorIcon && <Image source={floorIcon} style={style.image} />}
           {homingIcon && <Image source={homingIcon} style={style.image} />}
           {powerIcon && <Image source={powerIcon} style={style.image} />}
-          <FontAwesome name='sticky-note-o' size={24} color={colors.WHITE} />
-          <FontAwesome name='sticky-note' size={24} color={colors.WHITE} />
+          <TouchableOpacity onPress={() => setIsNoteVisible(!isNoteVisible)}>
+            <FontAwesome
+              name={isNoteVisible ? 'sticky-note' : 'sticky-note-o'}
+              size={24}
+              color={colors.WHITE}
+            />
+          </TouchableOpacity>
         </View>
+        {isNoteVisible && (
+          <View style={style.noteContainer}>
+            {description_1_kor && (
+              <Text style={style.noteTitle}>{description_1_kor}</Text>
+            )}
+            {description_2_kor && (
+              <Text style={style.noteTitle}>{description_2_kor}</Text>
+            )}
+            {description_3_kor && (
+              <Text style={style.noteTitle}>{description_3_kor}</Text>
+            )}
+            {description_4_kor && (
+              <Text style={style.noteTitle}>{description_4_kor}</Text>
+            )}
+            {!description_1_kor &&
+              !description_2_kor &&
+              !description_3_kor &&
+              !description_4_kor && (
+                <Text style={style.noteTitle}>메모추가 : </Text>
+              )}
+          </View>
+        )}
       </View>
       <View style={style.commandContainer}>
         <Text style={style.textNormal}>{prefix}</Text>
@@ -182,5 +246,20 @@ const style = StyleSheet.create({
   image: {
     width: 26,
     height: 26,
+  },
+  noteContainer: {
+    position: 'absolute',
+    backgroundColor: colors.BGCOLOR,
+    right: 0,
+    top: 40,
+    borderRadius: 10,
+    padding: 10,
+    borderWidth: 4,
+    borderColor: colors.GRAY,
+    zIndex: 2,
+  },
+  noteTitle: {
+    fontSize: 16,
+    color: colors.WHITE,
   },
 })
