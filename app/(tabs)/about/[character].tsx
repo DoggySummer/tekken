@@ -1,4 +1,12 @@
-import { Text, SafeAreaView, StyleSheet, Image } from 'react-native'
+import {
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  ActivityIndicator,
+  Image,
+  ScrollView,
+  Platform,
+} from 'react-native'
 import { useLocalSearchParams } from 'expo-router'
 import { characterList } from '@/constant/character'
 import { colors } from '@/constant/colors'
@@ -15,8 +23,14 @@ export default function Index() {
     (item) => item.name === character
   ) as Character
   const [skillData, setSkillData] = useState<Skill[]>([])
+  const [isLoading, setIsLoading] = useState(false)
   const fetchData = async () => {
-    const url = 'http://localhost:8081/api/db' + '?character=' + character
+    setIsLoading(true)
+    const baseUrl = Platform.select({
+      web: 'http://localhost:8081',
+      default: 'http://172.30.1.96:8081',
+    })
+    const url = baseUrl + '/api/db' + '?character=' + character
     const response = await fetch(url, {
       method: 'GET',
       headers: {
@@ -26,6 +40,7 @@ export default function Index() {
     const data = await response.json()
     console.log(data)
     setSkillData(data.data)
+    setIsLoading(false)
   }
 
   useEffect(() => {
@@ -34,13 +49,22 @@ export default function Index() {
 
   return (
     <SafeAreaView style={style.container}>
-      <View style={style.topContainer}>
-        <CharacterLeft image={characterData?.image} />
-        <CharacterRight character={characterData} />
-      </View>
-      {skillData.map((item) => {
-        return <SkillComponent key={item.skill_name} {...item} />
-      })}
+      <ScrollView
+        contentContainerStyle={style.scrollViewContent}
+        style={style.scrollView}
+      >
+        <View style={style.topContainer}>
+          <CharacterLeft image={characterData?.image} />
+          <CharacterRight character={characterData} />
+        </View>
+        {isLoading && (
+          <ActivityIndicator style={style.indicator} size='large' />
+        )}
+
+        {skillData.map((item) => {
+          return <SkillComponent key={item._id} {...item} />
+        })}
+      </ScrollView>
     </SafeAreaView>
   )
 }
@@ -76,5 +100,18 @@ const style = StyleSheet.create({
     marginBottom: 12,
     marginLeft: 12,
     width: '90%',
+  },
+  indicator: {
+    position: 'absolute',
+    top: '110%',
+    left: '50%',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollViewContent: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingBottom: 30,
   },
 })
