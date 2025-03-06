@@ -38,7 +38,6 @@ export default function Index() {
         <CharacterLeft image={characterData?.image} />
         <CharacterRight character={characterData} />
       </View>
-      {/* <Banner image={characterData?.image} /> */}
       {skillData.map((item) => {
         return <SkillComponent key={item.skill_name} {...item} />
       })}
@@ -50,6 +49,7 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.BGCOLOR,
+    overflow: 'scroll',
   },
   topContainer: {
     flexDirection: 'row',

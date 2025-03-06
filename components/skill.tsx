@@ -90,13 +90,14 @@ export default function SkillComponent(props: Skill) {
           {homingIcon && <Image source={homingIcon} style={style.image} />}
           {powerIcon && <Image source={powerIcon} style={style.image} />}
           <FontAwesome name='sticky-note-o' size={24} color={colors.WHITE} />
+          <FontAwesome name='sticky-note' size={24} color={colors.WHITE} />
         </View>
       </View>
       <View style={style.commandContainer}>
         <Text style={style.textNormal}>{prefix}</Text>
-        <Image source={image01?.image} style={style.image} />
-        <Image source={image02?.image} style={style.image} />
-
+        {image01 && <Image source={image01?.image} style={style.image} />}
+        {image02 && <Image source={image02?.image} style={style.image} />}
+        {image03 && <Image source={image03?.image} style={style.image} />}
         <Text style={style.textNormal}>{suffix}</Text>
       </View>
     </View>
@@ -176,6 +177,7 @@ const style = StyleSheet.create({
     width: '80%',
     gap: 6,
     marginTop: 20,
+    marginBottom: 24,
   },
   image: {
     width: 26,
