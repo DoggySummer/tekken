@@ -57,6 +57,18 @@ export default function SkillComponent(props: Skill) {
     ? hitIconsList.find((icon) => icon.name === 'power')?.image
     : null
   const startPlus = start[0] !== '-' ? true : false
+  const makeRed = (value: string) => {
+    return value[0] === '-' ? false : true
+  }
+  const downOrAirborn = (value: string) => {
+    if (value === 'd') {
+      return '다운'
+    } else if (value === 'a') {
+      return '공콤'
+    } else {
+      return value
+    }
+  }
 
   const loadBookmarkState = async () => {
     try {
@@ -102,20 +114,20 @@ export default function SkillComponent(props: Skill) {
           </View>
           <View style={style.skilldefContainer}>
             <Text style={style.skilldefTitle}>{'히트 : '}</Text>
-            <Text style={startPlus ? style.textPlus : style.textMinus}>
-              {hit}
+            <Text style={makeRed(hit) ? style.textPlus : style.textMinus}>
+              {downOrAirborn(hit)}
             </Text>
           </View>
           <View style={style.skilldefContainer}>
             <Text style={style.skilldefTitle}>{'가드 : '}</Text>
-            <Text style={startPlus ? style.textPlus : style.textMinus}>
+            <Text style={makeRed(guard) ? style.textPlus : style.textMinus}>
               {guard}
             </Text>
           </View>
           <View style={style.skilldefContainer}>
             <Text style={style.skilldefTitle}>{'카운터 : '}</Text>
-            <Text style={startPlus ? style.textPlus : style.textMinus}>
-              {counter}
+            <Text style={makeRed(counter) ? style.textPlus : style.textMinus}>
+              {downOrAirborn(counter)}
             </Text>
           </View>
         </View>
@@ -170,7 +182,7 @@ export default function SkillComponent(props: Skill) {
 
 const style = StyleSheet.create({
   container: {
-    borderTopWidth: 6,
+    borderBottomWidth: 6,
     borderColor: colors.GRAY,
     paddingTop: 24,
     width: '90%',
