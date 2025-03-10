@@ -40,9 +40,6 @@ import tornado from '@/assets/images/tornado.png'
 import wallblast from '@/assets/images/wallblast.png'
 import wallbound from '@/assets/images/wallbound.png'
 import wallbreak from '@/assets/images/wallbreak.png'
-
-import { Skill } from './type'
-
 export const moveList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] as const
 
 export const atkList = [
@@ -151,71 +148,71 @@ export const buttonList = [
     image: hx,
   },
   {
-    name: 'move01',
+    name: '1',
     image: move01,
   },
   {
-    name: 'move02',
+    name: '2',
     image: move02,
   },
   {
-    name: 'move03',
+    name: '3',
     image: move03,
   },
   {
-    name: 'move04',
+    name: '4',
     image: move04,
   },
   {
-    name: 'move05',
+    name: '5',
     image: move05,
   },
   {
-    name: 'move06',
+    name: '6',
     image: move06,
   },
   {
-    name: 'move07',
+    name: '7',
     image: move07,
   },
   {
-    name: 'move08',
+    name: '8',
     image: move08,
   },
   {
-    name: 'move09',
+    name: '9',
     image: move09,
   },
   {
-    name: 'dash01',
+    name: '1*',
     image: dash01,
   },
   {
-    name: 'dash02',
+    name: '2*',
     image: dash02,
   },
   {
-    name: 'dash03',
+    name: '3*',
     image: dash03,
   },
   {
-    name: 'dash04',
+    name: '4*',
     image: dash04,
   },
   {
-    name: 'dash06',
+    name: '6*',
     image: dash06,
   },
   {
-    name: 'dash07',
+    name: '7*',
     image: dash07,
   },
   {
-    name: 'dash08',
+    name: '8*',
     image: dash08,
   },
   {
-    name: 'dash09',
+    name: '9*',
     image: dash09,
   },
 ]

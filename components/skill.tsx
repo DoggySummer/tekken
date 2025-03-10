@@ -34,10 +34,13 @@ export default function SkillComponent(props: Skill) {
   } = props
   const storageKey = `bookmark_${_id}`
 
-  //command: ['move06', 'rp']
   const image01 = buttonList.find((button) => button.name === command[0])
   const image02 = buttonList.find((button) => button.name === command[1])
   const image03 = buttonList.find((button) => button.name === command[2])
+  const image04 = buttonList.find((button) => button.name === command[3])
+  const image05 = buttonList.find((button) => button.name === command[4])
+  const image06 = buttonList.find((button) => button.name === command[5])
+  const image07 = buttonList.find((button) => button.name === command[6])
   const heatIcon = hitIcons.heat
     ? hitIconsList.find((icon) => icon.name === 'heat')?.image
     : null
@@ -174,6 +177,10 @@ export default function SkillComponent(props: Skill) {
         {image01 && <Image source={image01?.image} style={style.image} />}
         {image02 && <Image source={image02?.image} style={style.image} />}
         {image03 && <Image source={image03?.image} style={style.image} />}
+        {image04 && <Image source={image04?.image} style={style.image} />}
+        {image05 && <Image source={image05?.image} style={style.image} />}
+        {image06 && <Image source={image06?.image} style={style.image} />}
+        {image07 && <Image source={image07?.image} style={style.image} />}
         <Text style={style.textNormal}>{suffix}</Text>
       </View>
     </View>
